@@ -3,7 +3,7 @@
 
 ## ERC20 Token
 
-We use a basic `burnable` ERC20 contract for Cryptomeda Network tokens. The contract implementations is directly based on the (https://github.com/OpenZeppelin/openzeppelin-contracts)[OpenZepplin] implementation of ERC-20.
+We use a basic `burnable` ERC20 contract for Cryptomeda Network tokens. The contract implementations is directly based on the (https://github.com/OpenZeppelin/openzeppelin-contracts)implementation of ERC-20.
 
 ## Cestaking
 
