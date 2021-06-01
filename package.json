@@ -1,0 +1,25 @@
+{
+  "name": "frm-ethereum-contracts",
+  "version": "1.0.0",
+  "description": "Ferrum Network Ethereum Contracts",
+  "main": "truffle.js",
+  "directories": {},
+  "scripts": {},
+  "author": "Naiem Yeganeh",
+  "license": "MIT",
+  "devDependencies": {
+    "ganache-cli": "^6.5.1",
+    "mocha": "^6.2.0",
+    "truffle": "^5.0.31",
+    "truffle-hdwallet-provider": "^1.0.15",
+    "truffle-plugin-verify": "^0.5.8",
+    "truffle-security": "^1.5.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.1.0",
+    "abi-decoder": "^2.2.0",
+    "ethers": "^5.2.0",
+    "truffle-flattener": "^1.5.0",
+    "web3": "^1.2.1"
+  }
+}
