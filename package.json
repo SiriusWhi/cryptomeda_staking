@@ -1,7 +1,7 @@
 {
-  "name": "frm-ethereum-contracts",
+  "name": "cryptomeda-ethereum-contracts",
   "version": "1.0.0",
-  "description": "Ferrum Network Ethereum Contracts",
+  "description": "Cryptomeda Network Ethereum Contracts",
   "main": "truffle.js",
   "directories": {},
   "scripts": {},
