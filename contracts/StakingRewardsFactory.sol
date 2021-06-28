@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.4;
 
+import "./ABDKMath64x64.sol";
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP. Does not include
  * the optional functions; to access them see `ERC20Detailed`.
@@ -712,6 +713,31 @@ contract StakingRewardsFactory is Ownable {
         for (uint i = 0; i < stakingTokens.length; i++) {
             notifyRewardAmount(stakingTokens[i]);
         }
+    }
+
+    function pow(int128 x, uint n) public pure returns (int128 r) {
+        r = ABDKMath64x64.fromUInt (1);
+        while (n > 0) {
+            if (n % 2 == 1) {
+                r = ABDKMath64x64.mul (r, x);
+                n -= 1;
+            } else {
+                x = ABDKMath64x64.mul (x, x);
+                n /= 2;
+            }
+        }
+    }
+
+    function compound(uint principal, uint ratio, uint n) public pure returns (uint) {
+        return ABDKMath64x64.mulu (
+            pow (
+                ABDKMath64x64.add (
+                    ABDKMath64x64.fromUInt (1),
+                    ABDKMath64x64.divu (
+                        ratio,
+                        10**18)),
+                n),
+            principal);
     }
 
     // notify reward amount for an individual staking token.
