@@ -44,23 +44,26 @@ contract Cestaking is Ownable {
 
     event Staked(
         address indexed token,
-        address indexed staker_,
+        address indexed staker_,    // indexed user address
         uint256 requestedAmount_,
-        uint256 stakedAmount_,
-        uint256 season
+        uint256 stakedAmount_,      // staking amount
+        uint256 season,             // indexed season number
+        uint256 timestamp           // staking timestamp
     );
     event PaidOut(
         address indexed token,
         address indexed staker_,
         uint256 amount_,
         uint256 reward_,
-        uint256 season
+        uint256 season,
+        uint256 timestamp
     );
     event Refunded(
         address indexed token,
         address indexed staker_,
         uint256 amount_,
-        uint256 season
+        uint256 season,
+        uint256 timestamp
     );
 
     /**
@@ -286,7 +289,8 @@ contract Cestaking is Ownable {
                 from,
                 amount,
                 reward,
-                currentActiveSeason
+                currentActiveSeason,
+                block.timestamp
             );
             return true;
         }
@@ -310,7 +314,8 @@ contract Cestaking is Ownable {
                 from,
                 amount,
                 reward,
-                season
+                season,
+                block.timestamp
             );
             return true;
         }
@@ -355,7 +360,8 @@ contract Cestaking is Ownable {
             staker,
             amount,
             remaining,
-            currentActiveSeason
+            currentActiveSeason,
+            block.timestamp
         );
 
         if (remaining < amount) {
@@ -366,7 +372,8 @@ contract Cestaking is Ownable {
                     stakingSeasons[currentActiveSeason].tokenAddress,
                     staker,
                     refund,
-                    currentActiveSeason
+                    currentActiveSeason,
+                    block.timestamp
                 );
             }
         }
