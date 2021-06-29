@@ -48,7 +48,8 @@ contract Cestaking is Ownable {
         uint256 requestedAmount_,
         uint256 stakedAmount_,      // staking amount
         uint256 season,             // indexed season number
-        uint256 timestamp           // staking timestamp
+        uint256 timestamp,           // staking timestamp
+        uint256 stakedTotal         // staked total
     );
     event PaidOut(
         address indexed token,
@@ -361,7 +362,8 @@ contract Cestaking is Ownable {
             amount,
             remaining,
             currentActiveSeason,
-            block.timestamp
+            block.timestamp,
+            stakingSeasons[currentActiveSeason].stakedTotal
         );
 
         if (remaining < amount) {
